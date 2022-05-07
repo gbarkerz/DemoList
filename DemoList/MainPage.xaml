@@ -19,9 +19,18 @@
                 FontSize="18"
                 HorizontalOptions="Center" />
 
+            <!-- Add a visual label for the list. -->
+            <Label x:Name="labelListMonkeysOfTheWorld" Text="Monkeys of the World" />
+
             <!-- From https://docs.microsoft.com/en-us/dotnet/maui/user-interface/controls/collectionview/layout. -->
             <!--<CollectionView ItemsSource="{Binding Monkeys}">-->
-            <CollectionView x:Name="CollectionViewTest">
+            
+            <!-- Give the CollectionView an accessible name based on the steps shown at 
+                https://docs.microsoft.com/en-us/dotnet/maui/fundamentals/accessibility#labeledby -->
+            
+            <CollectionView x:Name="CollectionViewTest"
+                AutomationProperties.LabeledBy="{x:Reference labelListMonkeysOfTheWorld}">
+                
             <CollectionView.ItemTemplate>
                     <DataTemplate>
                         <Grid Padding="10">
